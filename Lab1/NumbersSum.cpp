@@ -1,24 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-int my_atoi(const char * str){
+int strToInt(const char *str)
+{
     int rezultat = 0;
-    int semn= 1;
+    int semn = 1;
     int i = 0;
 
-    if (str[0] == '-') {
+    if (str[0] == '-')
+    {
         semn = -1;
         i++;
     }
 
-    for(;str[i] != '\0'; ++i){
+    for (; str[i] != '\0'; ++i)
+    {
         if (str[i] < '0' || str[i] > '9')
             continue;
 
         rezultat = rezultat * 10 + (str[i] - '0');
     }
-    
 
     return semn * rezultat;
 }
@@ -26,22 +27,22 @@ int my_atoi(const char * str){
 int main()
 {
     int sum = 0;
-    char stringNr[10];
+    char stringNr[20];
     FILE *input;
 
     input = fopen("in.txt", "r");
-    if (input == NULL) {
+    if (input == NULL)
+    {
         printf("Nu s-a putut deschide fisierul\n");
         return 1;
     }
 
-    
-
-    while(fgets(stringNr, 10, input)) {
-        sum += my_atoi(stringNr);
+    while (fgets(stringNr, 20, input))
+    {
+        sum += strToInt(stringNr);
     }
 
     fclose(input);
     printf("%d\n", sum);
-
+    return 0;
 }
