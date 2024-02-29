@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+using namespace std;
 
 int my_atoi(const char * str){
     int rezultat = 0;
@@ -12,11 +13,12 @@ int my_atoi(const char * str){
         i++;
     }
 
-    for(;str[i] != '\0'; ++i){
+    while(str[i] != '\0' ){
         if (str[i] < '0' || str[i] > '9')
             continue;
 
         rezultat = rezultat * 10 + (str[i] - '0');
+        ++i;
     }
     
 
@@ -28,20 +30,18 @@ int main()
     int sum = 0;
     char stringNr[10];
     FILE *input;
-
-    input = fopen("in.txt", "r");
     if (input == NULL) {
         printf("Nu s-a putut deschide fisierul\n");
         return 1;
     }
 
-    
+    input = fopen("in.txt", "r");
 
     while(fgets(stringNr, 10, input)) {
         sum += my_atoi(stringNr);
     }
 
     fclose(input);
-    printf("%d\n", sum);
+    printf("%i\n", sum);
 
 }
