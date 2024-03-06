@@ -5,7 +5,6 @@
 #define MAX_CUVINTE 100
 #define MAX_LUNGIME 50
 
-// Function to compare two strings for qsort
 int compare(const void *a, const void *b)
 {
     const char *str1 = *(const char **)a;
