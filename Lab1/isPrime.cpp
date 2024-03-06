@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-bool isPrime(int n)
+bool estePrim(int n)
 {
     for (int tr = 2; tr < n / 2; tr++)
         if ((n % tr ) == 0)
@@ -11,11 +11,11 @@ bool isPrime(int n)
 int main()
 {
     int n;
-    cout << "Enter a number:";
+    cout << "Scrie un numar:";
     cin >> n;
-    if (isPrime(n))
-        cout << n << " is prime !";
+    if (estePrim(n))
+        cout << n << " Numarul este prim !";
     else 
-        cout << n << " is NOT prime !";
+        cout << n << " Numarul nu este prim !";
     return 0;
 }
