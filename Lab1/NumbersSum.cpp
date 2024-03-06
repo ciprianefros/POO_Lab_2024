@@ -26,7 +26,7 @@ int strToInt(const char *str)
 
 int main()
 {
-    int sum = 0;
+    int suma = 0;
     char stringNr[20];
     FILE *input;
 
@@ -39,10 +39,10 @@ int main()
 
     while (fgets(stringNr, 20, input))
     {
-        sum += strToInt(stringNr);
+        suma += strToInt(stringNr);
     }
 
     fclose(input);
-    printf("%d\n", sum);
+    printf("%d\n", suma);
     return 0;
 }
