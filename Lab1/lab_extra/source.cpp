@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
         S = S + Operatori[(int)idx](x.p1, x.p2);
     }
 
-    //S=337
+    
     printf("S = %d\n", S);
 
     return 0;
