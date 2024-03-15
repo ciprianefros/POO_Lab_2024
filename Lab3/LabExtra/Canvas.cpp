@@ -18,23 +18,25 @@ Canvas::Canvas(int lines, int columns) : linii(lines), coloane(columns)
 
 void Canvas::set_pixel(int x, int y, char value)
 {
-    if (x >= 0 && x < coloane && y >= 0 && y < linii)
-        canvas[y][x] = value;
+    if (x >= 0 && x < linii && y >= 0 && y < coloane)
+        canvas[x][y] = value;
 }
 
 void Canvas::set_pixels(int count, ...)
 {
     va_list ap;
     int i;
+    int x;
+    int y;
+    char ch;
 
     va_start(ap, count);
     for (i = 0; i < count; i++) {
-        int x = va_arg(ap, int);
-        int y = va_arg(ap, int);
-        char ch = va_arg(ap, char);
+        x = va_arg(ap, int);
+        y = va_arg(ap, int);
+        ch = va_arg(ap, char);
 
-        if (x >= 0 && x < coloane && y >= 0 && y < linii)
-            canvas[y][x] = ch;
+        set_pixel(x, y, ch);
     }
     va_end(ap);
 
