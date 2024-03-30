@@ -38,7 +38,6 @@ Complex& Complex::operator()(double real, double imag)
 Complex& Complex::operator++()
 {
     ++real_data;
-    ++imag_data;
     return (*this);
 }
 
@@ -52,14 +51,13 @@ Complex Complex::operator++(int val)
 Complex& Complex::operator--()
 {
     --real_data;
-    --imag_data;
     return(*this);
 }
 
 Complex Complex::operator--(int val)
 {
     Complex temp(real_data, imag_data);
-    ++(*this);
+    --(*this);
     return temp;
 }
 

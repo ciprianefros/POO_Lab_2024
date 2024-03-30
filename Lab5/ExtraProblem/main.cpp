@@ -9,7 +9,7 @@ bool double_equals(double l, double r) {
 #define check(x)                                                                                                       \
     if (!(x)) {                                                                                                        \
         printf("at line #%d -> `%s` is not satisfied\n", __LINE__, #x);                                                \
-                                                                                                          \
+        return 1;                                                                                                      \
     }
 
 int main() {
