@@ -149,6 +149,22 @@ bool operator!=(const Complex& l, const Complex& r)
 
 std::ostream& operator<<(std::ostream& out, const Complex& complex)
 {
-    out << complex.real() << " + " << complex.imag() << "i";
+    if (complex.real() == 0 && complex.imag() != 0) {
+        out << complex.imag() << "i";
+    }
+    else if (complex.imag() == 0 && complex.real() != 0) {
+        out << complex.real();
+    }
+    else if (complex.real() != 0 && complex.imag() != 0 && complex.imag() > 0) {
+        out << complex.real() << " + " << complex.imag() << "i";
+    }
+    else if (complex.real() != 0 && complex.imag() != 0 && complex.imag() < 0) {
+        out << complex.real() << " - " << abs(complex.imag()) << "i";
+    }
+    else {
+        out << "0";
+    }
+
+    
     return out;
 }
